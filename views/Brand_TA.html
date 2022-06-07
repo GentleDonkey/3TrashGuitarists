@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <link href="/static/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <title>Tom Anderson 3TrashGuitarists</title>
+
+    <link href="/static/vendor/icofont/icofont.min.css" rel="stylesheet">
+    <link href="/static/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+    <link href="/static/vendor/remixicon/remixicon.css" rel="stylesheet">
+    <link href="/static/vendor/venobox/venobox.css" rel="stylesheet">
+    <link href="/static/vendor/owl.carousel/assets/owl.carousel.min.css" rel="stylesheet">
+    <link href="/static/css/style.css" rel="stylesheet">
+
+</head>
+<body>
+
+<header id="header" class="fixed-top ">
+    <div class="container-fluid">
+        <div class="row justify-content-center">
+            <div class="col-xl-9 d-flex align-items-center justify-content-between">
+                <h1 class="logo"><a href="{{urlfor "HomeController.Get"}}">3TrashGuitarists</a></h1>
+                <nav class="nav-menu d-none d-lg-block">
+                    <ul>
+                        <li><a href="{{urlfor "HomeController.Get"}}">Home</a></li>
+                        <li  class="active drop-down"><a href="/#brand">Brand</a>
+                            <ul>
+                                <li><a href="{{urlfor "FenderController.Get"}}">Fender</a></li>
+                                <li><a href="{{urlfor "SuhrController.Get"}}">Suhr</a></li>
+                                <li><a href="{{urlfor "IbanezController.Get"}}">Ibanez</a></li>
+                                <li><a href="{{urlfor "CharvelController.Get"}}">Charvel</a></li>
+                                <li><a href="{{urlfor "ESPController.Get"}}">ESP</a></li>
+                                <li><a href="{{urlfor "TAController.Get"}}">Tom Anderson</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#Search">Search</a></li>
+                        <li><a href="{{urlfor "AboutUsController.Get"}}">About Us</a></li>
+                        <li><a href="{{urlfor "ContactController.Get"}}">Contact</a></li>
+                        {{/*only can be seen after login*/}}
+                        {{if .IsLogin}}
+                            <li class="drop-down"><a href="">{{.user_name}}</a>
+                                <ul>
+                                    <li><a href="{{urlfor "MyInformationController.Get"}}">My Information</a></li>
+                                    <li><a href="">Shopping Cart</a></li>
+                                    <li><a href="{{urlfor "OrdersController.Get"}}">Order</a></li>
+                                </ul>
+                            </li>
+                        {{end}}
+                    </ul>
+                </nav>
+                {{if .IsLogin}}
+                    <a href="{{urlfor "ExitController.Get"}}" class="sign-in">Exit</a>
+                {{else}}
+                    <a href="{{urlfor "SignInController.Get"}}" class="sign-in">Sign In</a>
+                {{end}}
+            </div>
+        </div>
+    </div>
+</header>
+
+<section id="front-picture" class="d-flex flex-column justify-content-center brand-ta">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-xl-8">
+                <h1>Tom Anderson</h1>
+                <h2>Born out of Tom's garage in mid 1980's Southern California, Anderson Guitarworks has since been producing what some have called, "The best guitars on the planet." From humble beginnings to our current state of the art facility, we stay dedicated to the tradition and progress of electric guitar design.</h2>
+                <h2>The process begins with the creation of the most precise and comfortable bodies and necks possible. We accomplish this by choosing only the finest and most beautiful woods from select lumber mills. Our design and manufacturing process utilizes the best of both old and new world craftsmanship. Ground breaking CAD technology is used to achieve the most exacting tolerances found in the guitar industry, while the fine detail woodwork and beautiful finish sanding are done by the hands of a master.</h2>
+                <h3><a href="https://www.andersonguitarworks.com/">https://www.andersonguitarworks.com/</a></h3>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="series-guitar">
+    <div class="container">
+        <div class="row">
+
+            <div class="col-lg-12 col-md-12 d-flex align-items-stretch justify-content-center">
+                <div class="series-box">
+                    <div class="series"><img src="/static/Picture/cobra.png" alt="Cobra"></div>
+                    <h4 style="text-align:center"><a href="">Cobra</a></h4>
+                </div>
+            </div>
+
+            <div class="col-lg-12 col-md-12 d-flex align-items-stretch justify-content-center">
+                <div class="series-box">
+                    <div class="series"><img src="/static/Picture/s_family.png" alt="S Family"></div>
+                    <h4 style="text-align:center"><a href="">S Family</a></h4>
+                </div>
+            </div>
+
+            <div class="col-lg-12 col-md-12 d-flex align-items-stretch justify-content-center">
+                <div class="series-box">
+                    <div class="series"><img src="/static/Picture/t_family.png" alt="T Family"></div>
+                    <h4 style="text-align:center"><a href="">T Family</a></h4>
+                </div>
+            </div>
+
+            <div class="col-lg-12 col-md-12 d-flex align-items-stretch justify-content-center">
+                <div class="series-box">
+                    <div class="series"><img src="/static/Picture/angel.png" alt="Angel"></div>
+                    <h4 style="text-align:center"><a href="">Angel</a></h4>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+</section>
+
+<footer id="footer">
+    <div class="container">
+        <h3>3TrashGuitarists</h3>
+        <p>We sell electric guitars, but we don't know how to play :)</p>
+        <div class="social-links">
+            <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
+            <a href="https://www.facebook.com/phoebe.bu" class="facebook"><i class="bx bxl-facebook"></i></a>
+            <a href="https://www.instagram.com/WingoC23/" class="instagram"><i class="bx bxl-instagram"></i></a>
+            <a href="https://github.com/SereneTo" class="github"><i class="bx bxl-github"></i></a>
+
+        </div>
+
+        <div class="credits"></div>
+    </div>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <link href="/static/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <title>Ibanez 3TrashGuitarists</title>
+
+    <link href="/static/vendor/icofont/icofont.min.css" rel="stylesheet">
+    <link href="/static/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+    <link href="/static/vendor/remixicon/remixicon.css" rel="stylesheet">
+    <link href="/static/vendor/venobox/venobox.css" rel="stylesheet">
+    <link href="/static/vendor/owl.carousel/assets/owl.carousel.min.css" rel="stylesheet">
+    <link href="/static/css/style.css" rel="stylesheet">
+
+</head>
+<body>
+
+<header id="header" class="fixed-top ">
+    <div class="container-fluid">
+        <div class="row justify-content-center">
+            <div class="col-xl-9 d-flex align-items-center justify-content-between">
+                <h1 class="logo"><a href="{{urlfor "HomeController.Get"}}">3TrashGuitarists</a></h1>
+                <nav class="nav-menu d-none d-lg-block">
+                    <ul>
+                        <li><a href="{{urlfor "HomeController.Get"}}">Home</a></li>
+                        <li  class="active drop-down"><a href="/#brand">Brand</a>
+                            <ul>
+                                <li><a href="{{urlfor "FenderController.Get"}}">Fender</a></li>
+                                <li><a href="{{urlfor "SuhrController.Get"}}">Suhr</a></li>
+                                <li><a href="{{urlfor "IbanezController.Get"}}">Ibanez</a></li>
+                                <li><a href="{{urlfor "CharvelController.Get"}}">Charvel</a></li>
+                                <li><a href="{{urlfor "ESPController.Get"}}">ESP</a></li>
+                                <li><a href="{{urlfor "TAController.Get"}}">Tom Anderson</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#Search">Search</a></li>
+                        <li><a href="{{urlfor "AboutUsController.Get"}}">About Us</a></li>
+                        <li><a href="{{urlfor "ContactController.Get"}}">Contact</a></li>
+                        {{/*only can be seen after login*/}}
+                        {{if .IsLogin}}
+                            <li class="drop-down"><a href="">{{.user_name}}</a>
+                                <ul>
+                                    <li><a href="{{urlfor "MyInformationController.Get"}}">My Information</a></li>
+                                    <li><a href="">Shopping Cart</a></li>
+                                    <li><a href="{{urlfor "OrdersController.Get"}}">Order</a></li>
+                                </ul>
+                            </li>
+                        {{end}}
+                    </ul>
+                </nav>
+                {{if .IsLogin}}
+                    <a href="{{urlfor "ExitController.Get"}}" class="sign-in">Exit</a>
+                {{else}}
+                    <a href="{{urlfor "SignInController.Get"}}" class="sign-in">Sign In</a>
+                {{end}}
+            </div>
+        </div>
+    </div>
+</header>
+
+<section id="front-picture" class="d-flex flex-column justify-content-center brand-ibanez">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-xl-8">
+                <h1>Ibanez</h1>
+                <h2>have built their long standing reputation as a true performance guitar through a firm commitment to playability, a sleek and distinguished look and a unique tone that has become the benchmark for most popular music genres. Ibanez' devotion to innovation has always been at the forefront in terms of breaking new ground and not being afraid to push the instrument to new limits. Whether it be the pioneering of the double locking guitar systems, or the introduction of the 7, 8, and now 9 string guitars, no limit is placed. Their versatility is second to none with a keen eye on design and comfort, making them the go to instrument for players at all levels, and creating a superior playing experience with endless possibilities.</h2>
+                <h2>After making their place in history in the hard rock/heavy metal genre through the 1970s and 1980s, Ibanez has since branched out to become a staple for all styles of guitar playing. One look at the artist roster speaks volumes as to the quality of the instrument. Many of the world’s elite players have chosen Ibanez as the brand they stand behind. Whether it be Jazz Fusion and all the way to Progressive Djent Metal, Ibanez has made its mark by producing some of the most sought after models by players.</h2>
+                <h3><a href="https://www.ibanez.com/">https://www.ibanez.com/</a></h3>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="series-guitar">
+    <div class="container">
+        <div class="row">
+
+            <div class="col-lg-12 col-md-12 d-flex align-items-stretch justify-content-center">
+                <div class="series-box">
+                    <div class="series"><img src="/static/Picture/az.png" alt="AZ "></div>
+                    <h4 style="text-align:center"><a href="">AZ </a></h4>
+                </div>
+            </div>
+
+            <div class="col-lg-12 col-md-12 d-flex align-items-stretch justify-content-center">
+                <div class="series-box">
+                    <div class="series"><img src="/static/Picture/az_s.png" alt="AZ S "></div>
+                    <h4 style="text-align:center"><a href="">AZ S </a></h4>
+                </div>
+            </div>
+
+            <div class="col-lg-12 col-md-12 d-flex align-items-stretch justify-content-center">
+                <div class="series-box">
+                    <div class="series"><img src="/static/Picture/rg.png" alt="RG"></div>
+                    <h4 style="text-align:center"><a href="">RG</a></h4>
+                </div>
+            </div>
+
+            <div class="col-lg-12 col-md-12 d-flex align-items-stretch justify-content-center">
+                <div class="series-box">
+                    <div class="series"><img src="/static/Picture/rga.png" alt="RGA"></div>
+                    <h4 style="text-align:center"><a href="">RGA</a></h4>
+                </div>
+            </div>
+
+            <div class="col-lg-12 col-md-12 d-flex align-items-stretch justify-content-center">
+                <div class="series-box">
+                    <div class="series"><img src="/static/Picture/rgd.png" alt="RGD"></div>
+                    <h4 style="text-align:center"><a href="">RGD</a></h4>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<footer id="footer">
+    <div class="container">
+        <h3>3TrashGuitarists</h3>
+        <p>We sell electric guitars, but we don't know how to play :)</p>
+        <div class="social-links">
+            <a href="https://twitter.com/Serene15763786" class="twitter"><i class="bx bxl-twitter"></i></a>
+            <a href="https://www.facebook.com/phoebe.bu" class="facebook"><i class="bx bxl-facebook"></i></a>
+            <a href="https://www.instagram.com/WingoC23/" class="instagram"><i class="bx bxl-instagram"></i></a>
+            <a href="https://github.com/SereneTo" class="github"><i class="bx bxl-github"></i></a>
+
+        </div>
+
+        <div class="credits"></div>
+    </div>
+</footer>
+
+</body>
+</html>

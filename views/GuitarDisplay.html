@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <link href="/static/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <title>Welcome to 3TrashGuitarists</title>
+
+    <link href="/static/vendor/icofont/icofont.min.css" rel="stylesheet">
+    <link href="/static/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+    <link href="/static/vendor/remixicon/remixicon.css" rel="stylesheet">
+    <link href="/static/vendor/venobox/venobox.css" rel="stylesheet">
+    <link href="/static/vendor/owl.carousel/assets/owl.carousel.min.css" rel="stylesheet">
+    <link href="/static/css/style.css" rel="stylesheet">
+    <link href="/static/css/style1.css" rel="stylesheet">
+    <style type="text/css">
+        .display-guitar .guitar-box {
+            padding: 30px 30px;
+            transition: all ease-in-out 0.3s;
+            background: #fefefe;
+            box-shadow: 0px 5px 90px 0px rgba(110, 123, 131, 0.1);
+            border-radius: 18px;
+            border-bottom: 5px solid #fff;
+            margin-bottom: 20px;
+        }
+
+        .display-guitar .guitar-box .cover-display {
+            width: 270px;
+            height: 270px;
+            background: #FFFFFF;
+            border-radius: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+            transition: ease-in-out 0.3s;
+            color: #fff;
+        }
+
+        .display-guitar .guitar-box .cover-display img {
+            font-size: 32px;
+        }
+
+        .display-guitar .guitar-box h4 {
+            font-weight: 700;
+            margin-bottom: 0px;
+            font-size: 24px;
+        }
+
+        .guitar-box p {
+            line-height: 24px;
+            font-size: 14px;
+            margin-bottom: 0;
+        }
+    </style>
+
+
+</head>
+<body>
+<header id="header" class="fixed-top ">
+    <div class="container-fluid">
+        <div class="row justify-content-center">
+            <div class="col-xl-9 d-flex align-items-center justify-content-between">
+                <h1 class="logo"><a href="{{urlfor "HomeController.Get"}}">3TrashGuitarists</a></h1>
+                <nav class="nav-menu d-none d-lg-block">
+                    <ul>
+                        <li><a href="{{urlfor "HomeController.Get"}}">Home</a></li>
+                        <li class="active drop-down"><a href="#brand">Brand</a>
+                            <ul>
+                                <li><a href="{{urlfor "FenderController.Get"}}">Fender</a></li>
+                                <li><a href="{{urlfor "SuhrController.Get"}}">Suhr</a></li>
+                                <li><a href="{{urlfor "IbanezController.Get"}}">Ibanez</a></li>
+                                <li><a href="{{urlfor "CharvelController.Get"}}">Charvel</a></li>
+                                <li><a href="{{urlfor "ESPController.Get"}}">ESP</a></li>
+                                <li><a href="{{urlfor "TAController.Get"}}">Tom Anderson</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#Search">Search</a></li>
+                        <li><a href="{{urlfor "AboutUsController.Get"}}">About Us</a></li>
+                        <li><a href="{{urlfor "ContactController.Get"}}">Contact</a></li>
+                        {{/*only can be seen after login*/}}
+                        {{if .IsLogin}}
+                            <li class="drop-down"><a href="">{{.user_name}}</a>
+                                <ul>
+                                    <li><a href="{{urlfor "MyInformationController.Get"}}">My Information</a></li>
+                                    <li><a href="">Shopping Cart</a></li>
+                                    <li><a href="{{urlfor "OrdersController.Get"}}">Order</a></li>
+                                </ul>
+                            </li>
+                        {{end}}
+                    </ul>
+                </nav>
+                {{if .IsLogin}}
+                    <a href="{{urlfor "ExitController.Get"}}" class="sign-in">Exit</a>
+                {{else}}
+                    <a href="{{urlfor "SignInController.Get"}}" class="sign-in">Sign In</a>
+                {{end}}
+            </div>
+        </div>
+    </div>
+</header>
+
+<main id="main">
+    <section id="display-guitar" class="display-guitar">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 col-md-12 d-flex align-items-stretch">
+                    <div class="product-listing-sidebar">
+                            <div class="product-listing-widget">
+                                <ul class="accordion-widget">
+                                    <li class="accordion-item">
+                                        <a class="accordion-widget-title active">
+                                            <h3>Brand</h3>
+                                        </a>
+                                        <ul class="accordion-widget-content show">
+                                            <li>
+                                                <input type="radio" id="all" value="all" name="brand" checked="checked">
+                                                <label class="single-check">All</label>
+                                            </li>
+                                            <li>
+                                                <input type="radio" id="fender" value="fender" name="brand">
+                                                <label class="single-check">Fender</label>
+                                            </li>
+                                            <li>
+                                                <input type="radio" id="suhr" value="suhr" name="brand">
+                                                <label class="single-check">Suhr</label>
+                                            </li>
+                                            <li>
+                                                <input type="radio" id="ibanez" value="ibanez" name="brand">
+                                                <label class="single-check">Ibanez</label>
+                                            </li>
+                                            <li>
+                                                <input type="radio" id="charvel" value="charvel" name="brand">
+                                                <label class="single-check">Charvel</label>
+                                            </li>
+                                            <li>
+                                                <input type="radio" id="esp" value="esp" name="brand">
+                                                <label class="single-check">ESP</label>
+                                            </li>
+                                            <li>
+                                                <input type="radio" id="tom" value="tom" name="brand">
+                                                <label class="single-check">Tom Anderson</label>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="product-listing-widget">
+                                <ul class="accordion-widget">
+                                    <li class="accordion-item">
+                                        <a class="accordion-widget-title active">
+                                            <h3>Neck</h3>
+                                        </a>
+                                        <ul class="accordion-widget-content show">
+                                            <li>
+                                                <input type="radio" id="all" value="all" name="neckwood" checked="checked">
+                                                <label class="single-check">All</label>
+                                            </li>
+                                            <li>
+                                                <input type="radio" id="neckwood1" value="neckwood1" name="neckwood">
+                                                <label class="single-check">neckwood1</label>
+                                            </li>
+                                            <li>
+                                                <input type="radio" id="neckwood2" value="neckwood2" name="neckwood">
+                                                <label class="single-check">neckwood2</label>
+                                            </li>
+                                            <li>
+                                                <input type="radio" id="neckwood3" value="neckwood3" name="neckwood">
+                                                <label class="single-check">neckwood3</label>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="product-listing-widget">
+                                <ul class="accordion-widget">
+                                    <li class="accordion-item">
+                                        <a class="accordion-widget-title active">
+                                            <h3>Fretboard</h3>
+                                        </a>
+                                        <ul class="accordion-widget-content show">
+                                            <li>
+                                                <input type="radio" id="all" value="all" name="fretboardwood" checked="checked">
+                                                <label class="single-check">All</label>
+                                            </li>
+                                            <li>
+                                                <input type="radio" id="fretboardwood1" value="fretboardwood1" name="fretboardwood">
+                                                <label class="single-check">fretboardwood1</label>
+                                            </li>
+                                            <li>
+                                                 <input type="radio" id="fretboardwood2" value="fretboardwood2" name="fretboardwood">
+                                                 <label class="single-check">fretboardwood2</label>
+                                            </li>
+                                            <li>
+                                                 <input type="radio" id="fretboardwood3" value="fretboardwood3" name="fretboardwood">
+                                                 <label class="single-check">fretboardwood3</label>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="product-listing-widget">
+                                <ul class="accordion-widget">
+                                    <li class="accordion-item">
+                                        <a class="accordion-widget-title active">
+                                            <h3>Body</h3>
+                                        </a>
+                                        <ul class="accordion-widget-content show">
+                                            <li>
+                                                <input type="radio" id="all" value="all" name="bodywood" checked="checked">
+                                                <label class="single-check">All</label>
+                                            </li>
+                                            <li>
+                                                 <input type="radio" id="bodywood1" value="bodywood2" name="bodywood">
+                                                 <label class="single-check">bodywood1</label>
+                                            </li>
+                                            <li>
+                                                 <input type="radio" id="bodywood2" value="bodywood2" name="bodywood">
+                                                 <label class="single-check">bodywood2</label>
+                                            </li>
+                                            <li>
+                                                 <input type="radio" id="bodywood3" value="bodywood3" name="bodywood">
+                                                 <label class="single-check">bodywood3</label>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </div>
+                            <a href="#" class="default-btn two" id="filter"><span>Filter</span></a>
+                        </div>
+                </div>
+
+                <div class="col-lg-8 col-md-12 d-flex align-items-stretch">
+                    <div class="row">
+                        {{range $key,$val := .guitars}}
+                            <div class="col-lg-6 row-md-6 d-flex align-items-stretch">
+                                <div class="guitar-box">
+                                    <div class="cover-display"><img src="{{$val.DisplayCover}}"
+                                                                    alt="{{$val.ModelNumber}}" class="img-thumbnail">
+                                    </div>
+                                    <h4><a id="{{$val.Id}}" href="#" onclick='Redirect(this);'>{{$val.GuitarName}}</a>
+                                    </h4>
+                                </div>
+                            </div>
+                        {{end}}
+
+                        <div class="col-lg-6 col-md-6 d-flex align-items-stretch">
+                            <div class="guitar-box">
+                                <div class="cover-display"><img src="/static/Picture/Guitars/Fender/1/cover.jpg" alt=""
+                                                                class="img-thumbnail"></div>
+                                <h4><a href="{{urlfor ""}}">name</a></h4>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </section>
+</main>
+
+<footer id="footer">
+    <div class="container">
+        <h3>3TrashGuitarists</h3>
+        <p>We sell electric guitars, but we don't know how to play :)</p>
+        <div class="social-links">
+            <a href="https://twitter.com/Serene15763786 " class="twitter"><i class="bx bxl-twitter"></i></a>
+            <a href="https://www.facebook.com/phoebe.bu" class="facebook"><i class="bx bxl-facebook"></i></a>
+            <a href="https://www.instagram.com/WingoC23/" class="instagram"><i class="bx bxl-instagram"></i></a>
+            <a href="https://github.com/SereneTo" class="github"><i class="bx bxl-github"></i></a>
+
+        </div>
+
+        <div class="credits"></div>
+    </div>
+</footer>
+
+<script src="/static/vendor/jquery/jquery.min.js"></script>
+
+<script src="/static/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+<script src="/static/vendor/tempJS/meanmenu.min.js"></script>
+
+<script src="/static/vendor/tempJS/owl.carousel.min.js"></script>
+
+<script src="/static/vendor/tempJS/wow.min.js"></script>
+
+<script src="/static/vendor/tempJS/form-validator.min.js"></script>
+
+<script src="/static/vendor/tempJS/contact-form-script.js"></script>
+
+<script src="/static/vendor/tempJS/ajaxchimp.min.js"></script>
+
+<script src="/static/vendor/tempJS/range-slider.min.js"></script>
+
+<script src="/static/vendor/tempJS/custom.js"></script>
+
+<script type="text/javascript">
+    window.onload = getradio;
+
+    function getradio(){
+        var url = document.location.toString();
+        var arr = url.split("/");
+        console.log(arr[4],arr[5],arr[6],arr[7],arr[8]);
+        $("#"+arr[4]+"").attr("checked","checked");
+        $("#"+arr[5]+"").attr("checked","checked");
+        $("#"+arr[6]+"").attr("checked","checked");
+        $("#"+arr[7]+"").attr("checked","checked");
+        $("#"+arr[8]+"").attr("checked","checked");
+    }
+
+    function Redirect(th) {
+        var id = th.id;               //将获取的id值赋给新变量
+        window.location.href = "/shop_details/" + id;
+    }
+
+     $('#filter').click(function() {
+        var brand = $("input[name='brand']:checked").val();
+        var neckwood = $("input[name='neckwood']:checked").val();
+        var fretboardwood = $("input[name='fretboardwood']:checked").val();
+        var bodywood = $("input[name='bodywood']:checked").val();
+        console.log(brand,neckwood,fretboardwood,bodywood);
+        location.href = "/guitar_display/"+brand+"/all/"+neckwood+"/"+fretboardwood+"/"+bodywood;
+     });
+</script>
+
+</body>
+</html>

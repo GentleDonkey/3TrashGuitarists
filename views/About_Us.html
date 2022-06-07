@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <link href="/static/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <title>About Us 3TrashGuitarists</title>
+
+    <link href="/static/vendor/icofont/icofont.min.css" rel="stylesheet">
+    <link href="/static/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+    <link href="/static/vendor/remixicon/remixicon.css" rel="stylesheet">
+    <link href="/static/vendor/venobox/venobox.css" rel="stylesheet">
+    <link href="/static/vendor/owl.carousel/assets/owl.carousel.min.css" rel="stylesheet">
+    <link href="/static/css/style.css" rel="stylesheet">
+
+</head>
+<body>
+    <header id="header" class="fixed-top ">
+        <div class="container-fluid">
+            <div class="row justify-content-center">
+                <div class="col-xl-9 d-flex align-items-center justify-content-between">
+                    <h1 class="logo"><a href="{{urlfor "HomeController.Get"}}">3TrashGuitarists</a></h1>
+                    <nav class="nav-menu d-none d-lg-block">
+                        <ul>
+                            <li><a href="{{urlfor "HomeController.Get"}}">Home</a></li>
+                            <li class="drop-down"><a href="/#brand">Brand</a>
+                                <ul>
+                                    <li><a href="{{urlfor "FenderController.Get"}}">Fender</a></li>
+                                    <li><a href="{{urlfor "SuhrController.Get"}}">Suhr</a></li>
+                                    <li><a href="{{urlfor "IbanezController.Get"}}">Ibanez</a></li>
+                                    <li><a href="{{urlfor "CharvelController.Get"}}">Charvel</a></li>
+                                    <li><a href="{{urlfor "ESPController.Get"}}">ESP</a></li>
+                                    <li><a href="{{urlfor "TAController.Get"}}">Tom Anderson</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="#Search">Search</a></li>
+                            <li class="active"><a href="{{urlfor "AboutUsController.Get"}}">About Us</a></li>
+                            <li><a href="{{urlfor "ContactController.Get"}}">Contact</a></li>
+                            {{/*only can be seen after login*/}}
+                            {{if .IsLogin}}
+                                <li class="drop-down"><a href="">{{.user_name}}</a>
+                                    <ul>
+                                        <li><a href="{{urlfor "MyInformationController.Get"}}">My Information</a></li>
+                                        <li><a href="">Shopping Cart</a></li>
+                                        <li><a href="{{urlfor "OrdersController.Get"}}">Order</a></li>
+                                    </ul>
+                                </li>
+                            {{end}}
+                        </ul>
+                    </nav>
+                    {{if .IsLogin}}
+                        <a href="{{urlfor "ExitController.Get"}}" class="sign-in">Exit</a>
+                    {{else}}
+                        <a href="{{urlfor "SignInController.Get"}}" class="sign-in">Sign In</a>
+                    {{end}}
+                </div>
+            </div>
+        </div>
+
+
+    </header>
+
+
+    <section id="front-picture" class="d-flex flex-column justify-content-center standard-pic">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-xl-8">
+                    <h1>About Us</h1>
+                    <h2>Founded by Zeyuan Dong, Cheng Cheng and Phoebe Bu at Ottawa, Canada in 2021. 3TrashGuitarists aims to bring guitar players with brand new, high quality guitars. We also wish to exchange music ideas with musical friends all over the world!</h2>
+                    <h3>Attention: This is not a real guitar selling website.</h3>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="founder" class="founder">
+        <div class="container">
+            <div class="section-title">
+                <h2>Founders</h2>
+                <div class="row">
+                    <div class="col-lg-6 col-xs-12">
+                        <h3>Zeyuan "Serene" Dong</h3>
+                        <p>This guy firstly decided to learn how to play a guitar at the age of 16. He claimed that his initial wish is to play the song he likes with his guitar, sometimes show off and sing a song in front of his friends. While the truth is, he just wanted to ues the guitar as a way to attract girls because playing a guitar looks cool. Sadly, many years passed, he still haven't find a girl friend... What a melancholy story.</p>
+                        <p>Oh you may ask why there is no Gibson in our guitar shop. Well, no other reason, this bachelor is just a Gibson hater.</p>
+                    </div>
+                    <div class="d-flex flex-column justify-content-center col-lg-6 col-xs-12 founder1"></div>
+                </div>
+                <div class="white-space"></div>
+
+                <div class="row">
+                    <div class="col-lg-6 col-xs-12">
+                        <h3>Cheng "Whosyourdaddy" Cheng</h3>
+                        <p>This guy firstly decided to learn how to play a guitar at the age of 16. He claimed that his initial wish is to play the song he likes with his guitar, sometimes show off and sing a song in front of his friends. While the truth is, he just wanted to attract girls because playing a guitar looks cool. Sadly, many years passed, he still haven't find a girl friend... What a melancholy story.</p>
+                        <p>Oh you may ask why there is no Gibson in our guitar shop. Well, no other reason, this bachelor is just a Gibson hater.</p>
+                    </div>
+                    <div class="d-flex flex-column justify-content-center col-lg-6 col-xs-12 founder2"></div>
+                </div>
+                <div class="white-space"></div>
+
+                <div class="row">
+                    <div class="col-lg-6 col-xs-12">
+                        <h3>Zhiyan "Dabby" Qu</h3>
+                        <p>In old Chinese proverb, 'Three bloody shoemakers equal Zhuge Liang', which means three fools are better than a wise man. So i decided to be the third trash among the team. I have a short experience of playing ukulele, extremely bad, which makes me be more confident to go well with the other two trashes. We will be the next Jimi Hendrix lol!</p>
+                    </div>
+                    <div class="d-flex flex-column justify-content-center col-lg-6 col-xs-12 founder3"></div>
+                </div>
+                <div class="white-space"></div>
+
+        </div>
+            </div>
+        </div>
+    </section>
+
+    <footer id="footer">
+        <div class="container">
+            <h3>3TrashGuitarists</h3>
+            <p>We sell electric guitars, but we don't know how to play :)</p>
+            <div class="social-links">
+                <a href="https://twitter.com/Serene15763786 " class="twitter"><i class="bx bxl-twitter"></i></a>
+                <a href="https://www.facebook.com/phoebe.bu" class="facebook"><i class="bx bxl-facebook"></i></a>
+                <a href="https://www.instagram.com/WingoC23/" class="instagram"><i class="bx bxl-instagram"></i></a>
+                <a href="https://github.com/SereneTo" class="github"><i class="bx bxl-github"></i></a>
+
+            </div>
+
+            <div class="credits"></div>
+        </div>
+    </footer>
+
+
+</body>
+</html>

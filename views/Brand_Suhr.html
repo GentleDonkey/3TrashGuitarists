@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <link href="/static/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <title>Suhr 3TrashGuitarists</title>
+
+    <link href="/static/vendor/icofont/icofont.min.css" rel="stylesheet">
+    <link href="/static/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+    <link href="/static/vendor/remixicon/remixicon.css" rel="stylesheet">
+    <link href="/static/vendor/venobox/venobox.css" rel="stylesheet">
+    <link href="/static/vendor/owl.carousel/assets/owl.carousel.min.css" rel="stylesheet">
+    <link href="/static/css/style.css" rel="stylesheet">
+
+</head>
+<body>
+
+<header id="header" class="fixed-top ">
+    <div class="container-fluid">
+        <div class="row justify-content-center">
+            <div class="col-xl-9 d-flex align-items-center justify-content-between">
+                <h1 class="logo"><a href={{urlfor "HomeController.Get"}}>3TrashGuitarists</a></h1>
+                <nav class="nav-menu d-none d-lg-block">
+                    <ul>
+                        <li><a href="{{urlfor "HomeController.Get"}}">Home</a></li>
+                        <li  class="active drop-down"><a href="/#brand">Brand</a>
+                            <ul>
+                                <li><a href="{{urlfor "FenderController.Get"}}">Fender</a></li>
+                                <li><a href="{{urlfor "SuhrController.Get"}}">Suhr</a></li>
+                                <li><a href="{{urlfor "IbanezController.Get"}}">Ibanez</a></li>
+                                <li><a href="{{urlfor "CharvelController.Get"}}">Charvel</a></li>
+                                <li><a href="{{urlfor "ESPController.Get"}}">ESP</a></li>
+                                <li><a href="{{urlfor "TAController.Get"}}">Tom Anderson</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#Search">Search</a></li>
+                        <li><a href="{{urlfor "AboutUsController.Get"}}">About Us</a></li>
+                        <li><a href="{{urlfor "ContactController.Get"}}">Contact</a></li>
+                        {{/*only can be seen after login*/}}
+                        {{if .IsLogin}}
+                            <li class="drop-down"><a href="">{{.user_name}}</a>
+                                <ul>
+                                    <li><a href="{{urlfor "MyInformationController.Get"}}">My Information</a></li>
+                                    <li><a href="">Shopping Cart</a></li>
+                                    <li><a href="{{urlfor "OrdersController.Get"}}">Order</a></li>
+                                </ul>
+                            </li>
+                        {{end}}
+                    </ul>
+                </nav>
+                {{if .IsLogin}}
+                    <a href="{{urlfor "ExitController.Get"}}" class="sign-in">Exit</a>
+                {{else}}
+                    <a href="{{urlfor "SignInController.Get"}}" class="sign-in">Sign In</a>
+                {{end}}
+            </div>
+        </div>
+    </div>
+</header>
+
+<section id="front-picture" class="d-flex flex-column justify-content-center brand-suhr">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-xl-8">
+                <h1>Suhr</h1>
+                <h2>At Suhr, we don’t merely produce some of the finest hand-crafted guitars and amplifiers – we produce dreams that inspire musical passion and artistic creativity. Our fervent dedication to the highest standards of quality possible, our fanatical attention to detail, our ears for tone, and our love for music, are all evident in everything we produce.</h2>
+                <h2>The passion to be the very best possible is the underlying current of what Suhr is all about. The vision of John Suhr is to design and produce the best musical instruments and electronics possible. From there the skill of experienced master craftsmen, technological know-how, and the hard work of dedicated employees who truly love what they’re doing take over to produce modern works of art that discriminating artists and musicians will savor for a lifetime.</h2>
+                <h2>The greatest asset of Suhr Guitars is the people, a tight knit team of people focused on building the very best and satisfying the most discriminating players. In the end, it’s all about the journey of creating, not the destination. We hope that you will join us on the adventure!</h2>
+                <h3><a href="https://www.suhr.com/">https://www.suhr.com/</a></h3>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="series-guitar">
+    <div class="container">
+        <div class="row">
+
+            <div class="col-lg-12 col-md-12 d-flex align-items-stretch justify-content-center">
+                <div class="series-box">
+                    <div class="series"><img src="/static/Picture/modern.jpeg" alt="Modern"></div>
+                    <h4 style="text-align:center"><a href="">Modern</a></h4>
+                </div>
+            </div>
+
+            <div class="col-lg-12 col-md-12 d-flex align-items-stretch justify-content-center">
+                <div class="series-box">
+                    <div class="series"><img src="/static/Picture/standard.jpeg" alt="Standard"></div>
+                    <h4 style="text-align:center"><a href="">Standard</a></h4>
+                </div>
+            </div>
+
+            <div class="col-lg-12 col-md-12 d-flex align-items-stretch justify-content-center">
+                <div class="series-box">
+                    <div class="series"><img src="/static/Picture/classic_s.jpeg" alt="Classic S"></div>
+                    <h4 style="text-align:center"><a href="">Classic S</a></h4>
+                </div>
+            </div>
+
+            <div class="col-lg-12 col-md-12 d-flex align-items-stretch justify-content-center">
+                <div class="series-box">
+                    <div class="series"><img src="/static/Picture/classic_t.jpeg" alt="Classic T"></div>
+                    <h4 style="text-align:center"><a href="">Classic T</a></h4>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<footer id="footer">
+    <div class="container">
+        <h3>3TrashGuitarists</h3>
+        <p>We sell electric guitars, but we don't know how to play :)</p>
+        <div class="social-links">
+            <a href="https://twitter.com/Serene15763786" class="twitter"><i class="bx bxl-twitter"></i></a>
+            <a href="https://www.facebook.com/phoebe.bu" class="facebook"><i class="bx bxl-facebook"></i></a>
+            <a href="https://www.instagram.com/WingoC23/" class="instagram"><i class="bx bxl-instagram"></i></a>
+            <a href="https://github.com/SereneTo" class="github"><i class="bx bxl-github"></i></a>
+
+        </div>
+
+        <div class="credits"></div>
+    </div>
+</footer>
+
+</body>
+</html>

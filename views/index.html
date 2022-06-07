@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <link href="/static/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <title>Welcome to 3TrashGuitarists</title>
+
+    <link href="/static/vendor/icofont/icofont.min.css" rel="stylesheet">
+    <link href="/static/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+    <link href="/static/vendor/remixicon/remixicon.css" rel="stylesheet">
+    <link href="/static/vendor/venobox/venobox.css" rel="stylesheet">
+    <link href="/static/vendor/owl.carousel/assets/owl.carousel.min.css" rel="stylesheet">
+    <link href="/static/css/style.css" rel="stylesheet">
+
+</head>
+<body>
+    <header id="header" class="fixed-top ">
+        <div class="container-fluid">
+            <div class="row justify-content-center">
+                <div class="col-xl-9 d-flex align-items-center justify-content-between">
+                    <h1 class="logo"><a href="{{urlfor "HomeController.Get"}}">3TrashGuitarists</a></h1>
+                    <nav class="nav-menu d-none d-lg-block">
+                        <ul>
+                            <li class="active"><a href="{{urlfor "HomeController.Get"}}">Home</a></li>
+                            <li class="drop-down"><a href="#brand">Brand</a>
+                                <ul>
+                                    <li><a href="{{urlfor "FenderController.Get"}}">Fender</a></li>
+                                    <li><a href="{{urlfor "SuhrController.Get"}}">Suhr</a></li>
+                                    <li><a href="{{urlfor "IbanezController.Get"}}">Ibanez</a></li>
+                                    <li><a href="{{urlfor "CharvelController.Get"}}">Charvel</a></li>
+                                    <li><a href="{{urlfor "ESPController.Get"}}">ESP</a></li>
+                                    <li><a href="{{urlfor "TAController.Get"}}">Tom Anderson</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="#Search">Search</a></li>
+                            <li><a href="{{urlfor "AboutUsController.Get"}}">About Us</a></li>
+                            <li><a href="{{urlfor "ContactController.Get"}}">Contact</a></li>
+                            {{/*only can be seen after login*/}}
+                            {{if .IsLogin}}
+                                <li class="drop-down"><a href="">{{.user_name}}</a>
+                                    <ul>
+                                        <li><a href="{{urlfor "MyInformationController.Get"}}">My Information</a></li>
+                                        <li><a href="">Shopping Cart</a></li>
+                                        <li><a href="{{urlfor "OrdersController.Get"}}">Order</a></li>
+                                    </ul>
+                                </li>
+                            {{end}}
+                        </ul>
+                    </nav>
+                    {{if .IsLogin}}
+                        <a href="{{urlfor "ExitController.Get"}}" class="sign-in">Exit</a>
+                    {{else}}
+                        <a href="{{urlfor "SignInController.Get"}}" class="sign-in">Sign In</a>
+                    {{end}}
+                </div>
+            </div>
+        </div>
+
+
+    </header>
+
+
+    <section id="front-picture" class="d-flex flex-column justify-content-center standard-pic">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-xl-8">
+                    <h1>3TrashGuitarists</h1>
+                    <h2>Founded by <small>Zeyuan Dong, Cheng Cheng and Phoebe Bu</small></h2>
+                    <h3>Attention: This is not a real guitar selling website.</h3>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <main id="main">
+        <section id="brand" class="brand">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Brand</h2>
+                </div>
+                <div class="row">
+                    <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
+                        <div class="icon-box">
+                            <div class="icon"><img src="/static/Picture/fender.jpeg" alt="Fender" class="img-thumbnail"></div>
+                            <h4><a href="{{urlfor "FenderController.Get"}}">Fender</a></h4>
+                            <p>Since 1946, Fender's iconic Stratocasters, Telecasters and Precision & Jazz bass guitars have transformed nearly every music genre.</p>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
+                        <div class="icon-box">
+                            <div class="icon"><img src="/static/Picture/suhr.png" alt="Suhr" class="img-thumbnail"></div>
+                            <h4><a href="{{urlfor "SuhrController.Get"}}">Suhr</a></h4>
+                            <p>Suhr Guitars (officially JS Technologies Inc) is an American company that manufactures electric guitars and basses, guitar amplifiers, and effect units. The company is based in Lake Elsinore, California and was founded in 1997 by John Suhr, who "has a reputation for building exquisitely crafted guitars" and Steve Smith.</p>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
+                        <div class="icon-box">
+                            <div class="icon"><img src="/static/Picture/ibanez.jpg" alt="Ibanez" class="img-thumbnail"></div>
+                            <h4><a href="{{urlfor "IbanezController.Get"}}">Ibanez</a></h4>
+                            <p>Ibanez (アイバニーズ, Aibanīzu) is a Japanese guitar brand owned by Hoshino Gakki. Based in Nagoya, Aichi, Japan. </p>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
+                        <div class="icon-box">
+                            <div class="icon"><img src="/static/Picture/charvel.jpeg" alt="Charvel" class="img-thumbnail"></div>
+                            <h4><a href="{{urlfor "CharvelController.Get"}}">Charvel</a></h4>
+                            <p>Charvel is a brand of electric guitars founded in the 1970s by Wayne Charvel in Azusa, California and originally headquartered in Glendora, California. Today, Charvel is owned by the Fender Musical Instruments Corporation.</p>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
+                        <div class="icon-box">
+                            <div class="icon"><img src="/static/Picture/esp.jpeg" alt="ESP" class="img-thumbnail"></div>
+                            <h4><a href="{{urlfor "ESPController.Get"}}">ESP</a></h4>
+                            <p>ESP Company, Limited (株式会社イーエスピー, Kabushiki Gaisha Ī Esu Pī) is a Japanese guitar manufacturer, primarily focused on the production of electric guitars and basses. They are based in both Tokyo and Los Angeles, with distinct product lines for each market. </p>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
+                        <div class="icon-box">
+                            <div class="icon"><img src="/static/Picture/ta.jpeg" alt="TA" class="img-thumbnail"></div>
+                            <h4><a href="{{urlfor "TAController.Get"}}">Tom Anderson</a></h4>
+                            <p>Tom Anderson Guitarworks is an American manufacturer of electric guitars and guitar pickups, based in Newbury Park, California. The company was started in 1984 by Tom Anderson, who is regarded as "one of the most respected names in the custom guitar market."</p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </section>
+    </main>
+
+    <footer id="footer">
+        <div class="container">
+            <h3>3TrashGuitarists</h3>
+            <p>We sell electric guitars, but we don't know how to play :)</p>
+            <div class="social-links">
+                <a href="https://twitter.com/Serene15763786 " class="twitter"><i class="bx bxl-twitter"></i></a>
+                <a href="https://www.facebook.com/phoebe.bu" class="facebook"><i class="bx bxl-facebook"></i></a>
+                <a href="https://www.instagram.com/WingoC23/" class="instagram"><i class="bx bxl-instagram"></i></a>
+                <a href="https://github.com/SereneTo" class="github"><i class="bx bxl-github"></i></a>
+
+            </div>
+
+            <div class="credits"></div>
+        </div>
+    </footer>
+
+
+</body>
+</html>

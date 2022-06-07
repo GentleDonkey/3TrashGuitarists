@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <link href="/static/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+  <title>My Information</title>
+
+  <link href="/static/vendor/icofont/icofont.min.css" rel="stylesheet">
+  <link href="/static/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+  <link href="/static/vendor/remixicon/remixicon.css" rel="stylesheet">
+  <link href="/static/vendor/venobox/venobox.css" rel="stylesheet">
+  <link href="/static/vendor/owl.carousel/assets/owl.carousel.min.css" rel="stylesheet">
+  <link href="/static/css/style.css" rel="stylesheet">
+  <style type="text/css">
+    button{
+
+      background: #009961;
+      border: 0;
+      padding: 10px 10px;
+      margin-left: 5px;
+      margin-right: 5px;
+      color: #fff;
+      transition: 0.4s;
+      border-radius: 50px;
+      width: 200px;
+    }
+    input{
+      width: 200px;
+      height: 40px;
+      border-radius: 0;
+      box-shadow: none;
+      font-size: 14px;
+      border-radius: 4px;
+    }
+  </style>
+
+</head>
+<body>
+  <header id="header" class="fixed-top ">
+    <div class="container-fluid">
+      <div class="row justify-content-center">
+        <div class="col-xl-9 d-flex align-items-center justify-content-between">
+          <h1 class="logo"><a href="{{urlfor "HomeController.Get"}}">3TrashGuitarists</a></h1>
+          <nav class="nav-menu d-none d-lg-block">
+            <ul>
+              <li><a href="{{urlfor "HomeController.Get"}}">Home</a></li>
+              <li class="drop-down"><a href="#brand">Brand</a>
+                <ul>
+                  <li><a href="{{urlfor "FenderController.Get"}}">Fender</a></li>
+                  <li><a href="{{urlfor "SuhrController.Get"}}">Suhr</a></li>
+                  <li><a href="{{urlfor "IbanezController.Get"}}">Ibanez</a></li>
+                  <li><a href="{{urlfor "CharvelController.Get"}}">Charvel</a></li>
+                  <li><a href="{{urlfor "ESPController.Get"}}">ESP</a></li>
+                  <li><a href="{{urlfor "TAController.Get"}}">Tom Anderson</a></li>
+                </ul>
+              </li>
+              <li><a href="#Search">Search</a></li>
+              <li><a href="{{urlfor "AboutUsController.Get"}}">About Us</a></li>
+              <li><a href="{{urlfor "ContactController.Get"}}">Contact</a></li>
+              {{/*only can be seen after login*/}}
+              {{if .IsLogin}}
+                <li  class="active drop-down"><a href="">{{.user_name}}</a>
+                  <ul>
+                    <li><a href="{{urlfor "MyInformationController.Get"}}">My Information</a></li>
+                    <li><a href="">Shopping Cart</a></li>
+                    <li><a href="{{urlfor "OrdersController.Get"}}">Order</a></li>
+                  </ul>
+                </li>
+              {{end}}
+            </ul>
+          </nav>
+          {{if .IsLogin}}
+            <a href="{{urlfor "ExitController.Get"}}" class="sign-in">Exit</a>
+          {{else}}
+            <a href="{{urlfor "SignInController.Get"}}" class="sign-in">Sign In</a>
+          {{end}}
+        </div>
+      </div>
+    </div>
+
+
+  </header>
+
+  <section id="blank-picture" class="d-flex flex-column justify-content-center blank-pic"></section>
+  <section>
+    <div class="container">
+      <div class="row">
+        <div class = "col"><h3></h3></div>
+        <div class = "col"><h3>User name:</h3></div>
+        <div class = "col-6"><h3>{{.user_name}}</h3></div>
+      </div>
+      <br>
+      <div class="row">
+        <div class = "col"><h3></h3></div>
+        <div class = "col"><h3>Email Address:</h3></div>
+        <div class = "col-6" id="email"><h3>{{.Email}}</h3></div>
+      </div>
+      <br>
+      <div class="row">
+        <div class = "col"><h3></h3></div>
+        <div class = "col"><h3>Password:</h3></div>
+        <div class = "col"><input type="hidden" id="password" placeholder="Enter new password"></div>
+        <div class = "col"><button id="change_password_button">Change password</button></div>
+      </div>
+      <br>
+      <div class="row" style="display: none;" id="div_repassword">
+        <div class = "col"><h3></h3></div>
+        <div class = "col"><h3></h3></div>
+        <div class = "col"><input id="repassword" placeholder="Enter password again"></div>
+        <div class = "col"><button id="repassword_button">Change password</button></div>
+      </div>
+      <br style="display: none;" id=br_repassword>
+      <div class="row">
+        <div class = "col"><h3></h3></div>
+        <div class = "col"><h3>Address 1:</h3></div>
+        <div class = "col"><input type="text" id="address1" placeholder="{{.Address1}}"></div>
+        <div class = "col"><button id="change_address1_button">Change address 1</button></div>
+      </div>
+      <br>
+      <div class="row">
+        <div class = "col"><h3></h3></div>
+        <div class = "col"><h3>Address 2:</h3></div>
+        <div class = "col"><input type="text" id="address2" placeholder="{{.Address2}}"></div>
+        <div class = "col"><button id="change_address2_button">Change address 2</button></div>
+      </div>
+      <br>
+      <div class="row">
+        <div class = "col"><h3></h3></div>
+        <div class = "col"><h3>Address 3:</h3></div>
+        <div class = "col"><input type="text" id="address3" placeholder="{{.Address3}}"></div>
+        <div class = "col"><button id="change_address3_button">Change address 3</button></div>
+      </div>
+      <br>
+    </div>
+  </section>
+
+
+
+  <footer id="footer">
+    <div class="container">
+      <h3>3TrashGuitarists</h3>
+      <p>We sell electric guitars, but we don't know how to play :)</p>
+      <div class="social-links">
+        <a href="https://twitter.com/Serene15763786 " class="twitter"><i class="bx bxl-twitter"></i></a>
+        <a href="https://www.facebook.com/phoebe.bu" class="facebook"><i class="bx bxl-facebook"></i></a>
+        <a href="https://www.instagram.com/WingoC23/" class="instagram"><i class="bx bxl-instagram"></i></a>
+        <a href="https://github.com/SereneTo" class="github"><i class="bx bxl-github"></i></a>
+
+      </div>
+
+      <div class="credits"></div>
+    </div>
+  </footer>
+  <script src="/static/vendor/jquery/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+  <script type="text/javascript">
+    $('#change_password_button').click(function() {
+      $("#change_password_button").hide();
+      $("#password").attr("type","");
+      $("#div_repassword").attr("style","");
+      $("#br_repassword").attr("style","");
+    });
+    $('#repassword_button').click(function() {
+      $.ajax({
+        type: "post",
+        url: "{{urlfor "MyInformationController.ChangePassword"}}",
+        data:{
+          password:$("#password").val(),
+          repassword:$("#repassword").val()
+        },
+        dataType: 'json',
+        success: function(returndata){
+            alert(returndata.message);
+            location.href = "{{urlfor "MyInformationController.Get"}}";
+        },
+        error: function () {
+          alert('Please try later.');
+          location.href = "{{urlfor "MyInformationController.Get"}}";
+        }
+      });
+    });
+
+    $('#change_address1_button').click(function() {
+      $.ajax({
+        type: "post",
+        url: "{{urlfor "MyInformationController.ChangeAddress1"}}",
+        data:{
+          address1:$("#address1").val()
+        },
+        dataType: 'json',
+        success: function(returndata){
+          alert(returndata.message);
+          location.href = "{{urlfor "MyInformationController.Get"}}";
+        },
+        error: function () {
+          alert('Please try later.');
+          location.href = "{{urlfor "MyInformationController.Get"}}";
+        }
+      });
+    });
+
+    $('#change_address2_button').click(function() {
+      $.ajax({
+        type: "post",
+        url: "{{urlfor "MyInformationController.ChangeAddress2"}}",
+        data:{
+          address2:$("#address2").val()
+        },
+        dataType: 'json',
+        success: function(returndata){
+          alert(returndata.message);
+          location.href = "{{urlfor "MyInformationController.Get"}}";
+        },
+        error: function () {
+          alert('Please try later.');
+          location.href = "{{urlfor "MyInformationController.Get"}}";
+        }
+      });
+    });
+
+    $('#change_address3_button').click(function() {
+      $.ajax({
+        type: "post",
+        url: "{{urlfor "MyInformationController.ChangeAddress3"}}",
+        data:{
+          address3:$("#address3").val()
+        },
+        dataType: 'json',
+        success: function(returndata){
+          alert(returndata.message);
+          location.href = "{{urlfor "MyInformationController.Get"}}";
+        },
+        error: function () {
+          alert('Please try later.');
+          location.href = "{{urlfor "MyInformationController.Get"}}";
+        }
+      });
+    });
+  </script>
+
+</body>
+</html>
